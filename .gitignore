@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Virtual environments and local settings
+.venv/
+venv/
+env/
+*.local.yaml
+.env
+
+# Generated experiment outputs
+outputs/*
+!outputs/.gitkeep
+!outputs/README.md
+
+# Local model checkpoints and downloaded weights
+models/*
+!models/README.md
+
+# Large local archives or scratch files
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.7z
+
+# OS/editor noise
+.DS_Store
+*~
+*.swp

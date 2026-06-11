@@ -1,0 +1,59 @@
+paths:
+  job_sql_dir: data/job
+  outputs_dir: outputs
+  cases_path: outputs/cases.jsonl
+  edit_log_path: outputs/edit_log.jsonl
+  drift_log_path: outputs/drift_events.jsonl
+  metrics_path: outputs/metrics.csv
+  baseline_csv: outputs/res_job_pg_new.csv
+
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  dbname: imdb
+  user: postgres
+  password: ""
+  connect_timeout: 10
+  statement_timeout_ms: 120000
+
+models:
+  embedding_model: sentence-transformers/paraphrase-MiniLM-L6-v2
+  llm_path: models/8B-SFT
+  llm_adapter_path: models/checkpoint-1000
+  domain_file: prompts/IMDB/domain.nl
+  device: cuda
+  mock_llm: false
+  max_new_tokens: 512
+  do_sample: true
+  temperature: 1.0
+  top_p: 1.0
+  torch_dtype: bfloat16
+  device_map: auto
+  local_files_only: true
+
+milvus:
+  host: 127.0.0.1
+  port: 19530
+  collection: kmdaqo_cases
+  dim: 384
+  top_k: 8
+  use_mock_on_failure: true
+
+optimizer:
+  memory_capacity: 1000
+  short_query_threshold_ms: 0
+  min_predicted_gain: 1.05
+  min_confidence: 0.35
+  llm_timeout_s: 60
+  canary_baseline_rate: 0.0
+  verify_candidate_hints: true
+  max_candidate_hints: 24
+  candidate_timeout_ms: 5000
+  measure_current_baseline: true
+
+drift:
+  window_size: 20
+  embedding_shift_threshold: 0.25
+  latency_regression_threshold: 1.15
+  hint_failure_threshold: 0.25
+  estimate_error_threshold: 2.0

@@ -1,0 +1,25 @@
+[project]
+name = "kmdaqo"
+version = "0.1.0"
+description = "Research prototype for KMDAQO drift-adaptive hint generation."
+requires-python = ">=3.9"
+dependencies = [
+  "numpy",
+  "pandas",
+  "matplotlib",
+  "psycopg2-binary",
+  "pymilvus",
+  "transformers",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+embedding = ["sentence-transformers"]
+torch-cu118 = [
+  "torch==2.4.1+cu118",
+  "torchvision==0.19.1+cu118",
+  "torchaudio==2.4.1+cu118",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

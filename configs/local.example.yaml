@@ -1,0 +1,23 @@
+paths:
+  job_sql_dir: data/job
+  outputs_dir: outputs
+  cases_path: outputs/cases.jsonl
+  metrics_path: outputs/metrics.csv
+  baseline_csv: outputs/res_job_pg_new.csv
+
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  dbname: imdb
+  user: postgres
+  password: ""
+
+models:
+  llm_path: models/8B-SFT
+  llm_adapter_path: models/checkpoint-1000
+  device: cuda
+
+milvus:
+  host: 127.0.0.1
+  port: 19530
+  use_mock_on_failure: true

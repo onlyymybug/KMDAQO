@@ -1,0 +1,5 @@
+# Optional embedding package.
+# Note: sentence-transformers depends on torch. Install this after PyTorch is ready.
+
+sentence-transformers>=3.0
+
